@@ -1557,7 +1557,7 @@ class MusicBot(discord.Client):
         Undo the last song queued.
         """
 
-        if self.undo == False:
+        if not self.undo:
             return Response('No new song was added recently.', delete_after=20)
         else:
             self.undo = False
