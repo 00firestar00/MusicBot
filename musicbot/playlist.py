@@ -472,7 +472,7 @@ class PlaylistEntry:
         as to why the song download failed.
         """
         future = asyncio.Future()
-        if self.is_downloaded:
+        if self.is_downloaded and os.path.isfile(self.expected_filename):
             # In the event that we're downloaded, we're already ready for playback.
             future.set_result(self)
 
